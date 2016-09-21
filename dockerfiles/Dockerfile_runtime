@@ -1,7 +1,7 @@
 FROM demoregistry.dataman-inc.com/library/centos7-base:20160907193907 
 MAINTAINER pro zpang@dataman-inc.com
 
-ENV CONSUL_VERSION=0.6.4 
+ENV CONSUL_VERSION=0.7.0 
 ENV CONSUL_PKG_NAME=consul_${CONSUL_VERSION}_linux_amd64.zip
 ENV CONSUL_WEB_PKG_NAME=consul_${CONSUL_VERSION}_web_ui.zip
 
@@ -9,5 +9,6 @@ RUN curl -o $CONSUL_PKG_NAME https://releases.hashicorp.com/consul/$CONSUL_VERSI
 	 unzip -o $CONSUL_PKG_NAME -d / && \
     curl -o $CONSUL_WEB_PKG_NAME.zip https://releases.hashicorp.com/consul/$CONSUL_VERSION/$CONSUL_WEB_PKG_NAME && \
 	 unzip -o $CONSUL_WEB_PKG_NAME -d /web_ui
+COPY consul.d /consul.d
 
 ENTRYPOINT ["/consul"]
