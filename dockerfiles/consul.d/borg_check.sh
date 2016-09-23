@@ -1,7 +1,7 @@
-BORG_HEALTH=$(curl http://consul_host:5013/v1/health  | grep healthy | wc -l)
-FABIO_HEALTH=$(curl http://consul_host:9998/health)
+BORG_HEALTH=$(curl http://consul_host:5013/v1/health 2>/dev/null | grep healthy | wc -l)
+FABIO_HEALTH=$(curl http://consul_host:9998/health 2>/dev/null)
 
-if [ $BORG_HEALTH -eq 1 ] && [ $FABIO_HEALTH = "OK" ];then
+if [ "x$BORG_HEALTH" == "x1" ] && [ "x$FABIO_HEALTH" == "xOK" ];then
         exit 0
 else
         exit 1
