@@ -1,7 +1,7 @@
 FROM demoregistry.dataman-inc.com/library/centos7-base:20160907193907 
 MAINTAINER pro zpang@dataman-inc.com
 
-ENV CONSUL_VERSION=0.7.0 
+ENV CONSUL_VERSION=0.7.5
 ENV CONSUL_PKG_NAME=consul_${CONSUL_VERSION}_linux_amd64.zip
 ENV CONSUL_WEB_PKG_NAME=consul_${CONSUL_VERSION}_web_ui.zip
 
