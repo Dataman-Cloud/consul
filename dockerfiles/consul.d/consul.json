@@ -1,5 +1,5 @@
 {
   "dns_config":{
-    "only_passing": true
+    "only_passing": false
   }
 }
